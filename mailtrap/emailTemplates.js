@@ -1,3 +1,9 @@
+import dotenv from "dotenv";
+dotenv.config();
+
+const appName = `${process.env.APPNAME}`;
+const HomepageURL = `${process.env.CLIENT_URL}`;
+
 export const VERIFICATION_EMAIL_TEMPLATE = `
 <!DOCTYPE html>
 <html lang="en">
@@ -19,7 +25,7 @@ export const VERIFICATION_EMAIL_TEMPLATE = `
     <p>Enter this code on the verification page to complete your registration.</p>
     <p>This code will expire in 15 minutes for security reasons.</p>
     <p>If you didn't create an account with us, please ignore this email.</p>
-    <p>Best regards,<br>{App Name} Team</p>
+    <p>Best regards,<br>${appName} Team</p>
   </div>
   <div style="text-align: center; margin-top: 20px; color: #888; font-size: 0.8em;">
     <p>This is an automated message, please do not reply to this email.</p>
@@ -92,7 +98,7 @@ export const VERIFICATION_SUCCESS_TEMPLATE = `
       <div class="checkmark">✓</div>
       <p>Thank you for confirming your email. You can now access all the features of your account.</p>
       <p>If you have any questions or need assistance, feel free to reach out to our support team.</p>
-      <p>Best regards,<br>{App Name} Team</p>
+      <p>Best regards,<br>${appName} Team</p>
     </div>
     <div class="footer">
       <p>This is an automated message, please do not reply to this email.</p>
@@ -108,7 +114,7 @@ export const WELCOME_TO_APP_TEMPLATE = `
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Welcome to {App Name}</title>
+  <title>Welcome to ${appName}</title>
   <style>
     body {
       font-family: 'Arial', sans-serif; 
@@ -163,11 +169,11 @@ export const WELCOME_TO_APP_TEMPLATE = `
 <body>
   <div class="container">
     <div class="header">
-      <h1>Welcome to {App Name}!</h1>
+      <h1>Welcome to ${appName}!</h1>
     </div>
     <div class="content">
       <p>Hello, {username}</p>
-      <p>We’re excited to have you join the {App Name} community! You’ve taken the first step towards better managing your expenses.</p>
+      <p>We're excited to have you join the ${appName} community! You've taken the first step towards better managing your expenses.</p>
       <p>Here are a few things you can do to get started:</p>
       <ul>
         <li>Explore our features</li>
@@ -175,9 +181,9 @@ export const WELCOME_TO_APP_TEMPLATE = `
         <li>Track your spending</li>
       </ul>
       <p>To dive right in, click the button below:</p>
-      <a href="{HomepageURL}" class="button">Open App</a>
+      <a href="${HomepageURL}" class="button">Open App</a>
       <p>If you have any questions or need assistance, our support team is here to help!</p>
-      <p>Welcome aboard,<br>{App Name} Team</p>
+      <p>Welcome aboard,<br>${appName} Team</p>
     </div>
     <div class="footer">
       <p>This is an automated message, please do not reply to this email.</p>
@@ -215,7 +221,7 @@ export const PASSWORD_RESET_SUCCESS_TEMPLATE = `
       <li>Avoid using the same password across multiple sites</li>
     </ul>
     <p>Thank you for helping us keep your account secure.</p>
-    <p>Best regards,<br>{App Name} Team</p>
+    <p>Best regards,<br>${appName} Team</p>
   </div>
   <div style="text-align: center; margin-top: 20px; color: #888; font-size: 0.8em;">
     <p>This is an automated message, please do not reply to this email.</p>
@@ -241,10 +247,10 @@ export const PASSWORD_RESET_REQUEST_TEMPLATE = `
     <p>We received a request to reset your password. If you didn't make this request, please ignore this email.</p>
     <p>To reset your password, click the button below:</p>
     <div style="text-align: center; margin: 30px 0;">
-      <a href="{resetURL}" style="background-color: #4CAF50; color: white; padding: 12px 20px; text-decoration: none; border-radius: 5px; font-weight: bold;">Reset Password</a>
+      <a href=" {resetURL} " style="background-color: #4CAF50; color: white; padding: 12px 20px; text-decoration: none; border-radius: 5px; font-weight: bold;">Reset Password</a>
     </div>
     <p>This link will expire in 1 hour for security reasons.</p>
-    <p>Best regards,<br>{App Name} Team</p>
+    <p>Best regards,<br>${appName} Team</p>
   </div>
   <div style="text-align: center; margin-top: 20px; color: #888; font-size: 0.8em;">
     <p>This is an automated message, please do not reply to this email.</p>

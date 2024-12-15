@@ -24,5 +24,4 @@ Milestones:
 TO DO when using for other projects:
 
 1. Change the app name and homepage link in mailtrap/emails.js
-2. Clear the access token in the auth header and frontend when you logout
-3. Change the env variables
+2. Change the env variables

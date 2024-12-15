@@ -22,7 +22,10 @@ const registeredUsersSchema = new mongoose.Schema(
       default: false,
     },
     roles: { type: Array, default: ["user"] },
-
+    isBlacklisted: {
+      type: Boolean,
+      default: false,
+    },
     refreshToken: String,
     resetPasswordToken: String,
     resetPasswordExpiresAt: Date,

@@ -37,12 +37,10 @@ const handleUserSignup = async (req, res) => {
       verificationToken,
       verificationTokenExpiresAt: Date.now() + 1 * 24 * 60 * 60 * 1000,
     });
-    await generateRefreshTokenAndSetCookie(res, newUser);
-    const accessToken = await generateAccessToken(newUser);
     await sendVerificationEmail(email, username, verificationToken);
     return res
       .status(201)
-      .json({ accessToken, message: `${username} signed up successfully!` });
+      .json({ message: `${username} signed up successfully!` });
   } catch (err) {
     return res.status(500).json({ message: err.message });
   }

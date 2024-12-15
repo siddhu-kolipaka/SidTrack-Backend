@@ -5,13 +5,14 @@ dotenv.config();
 
 const handleUserDelete = async (req, res) => {
   try {
-    const { email, username, password } = req.body;
+    const { password } = req.body;
+    const { username, email } = req.user;
     if (!password)
       return res.status(400).json({ message: "Password is needed to delete" });
 
     const user = await registeredUsers.findOne({ email, username });
     const match = await bcrypt.compare(password, user.password);
-    if (!match) throw new Error();
+    if (!match) return res.status(400).json({ message: "Wrong Password" });
 
     await registeredUsers.findOneAndDelete({ username, email });
 

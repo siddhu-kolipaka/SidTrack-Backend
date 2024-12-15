@@ -7,7 +7,7 @@ const handleResetPassword = async (req, res) => {
     const { token } = req.params;
     const { password } = req.body;
 
-    const user = await registeredUsers.find({
+    const user = await registeredUsers.findOne({
       resetPasswordToken: token,
       resetPasswordExpiresAt: { $gt: Date.now() },
     });
