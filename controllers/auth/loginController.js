@@ -1,6 +1,6 @@
 import registeredUsers from "../../models/registeredUsers.js";
-import generateAccessToken from "../../services/generateAccessToken.js";
-import generateRefreshTokenAndSetCookie from "../../services/generateRefreshTokenAndSetCookie.js";
+import generateAccessToken from "../../services/auth/generateAccessToken.js";
+import generateRefreshTokenAndSetCookie from "../../services/auth/generateRefreshTokenAndSetCookie.js";
 import bcrypt from "bcrypt";
 import dotenv from "dotenv";
 dotenv.config();

@@ -1,6 +1,6 @@
 import jwt from "jsonwebtoken";
 import dotenv from "dotenv";
-import registeredUsers from "../models/registeredUsers.js";
+import registeredUsers from "../../models/registeredUsers.js";
 dotenv.config();
 
 const generateRefreshTokenAndSetCookie = async (res, user) => {

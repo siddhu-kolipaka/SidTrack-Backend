@@ -1,7 +1,7 @@
 import registeredUsers from "../../models/registeredUsers.js";
 import jwt from "jsonwebtoken";
 import dotenv from "dotenv";
-import generateAccessToken from "../../services/generateAccessToken.js";
+import generateAccessToken from "../../services/auth/generateAccessToken.js";
 dotenv.config();
 
 const getNewAccessToken = async (req, res) => {
