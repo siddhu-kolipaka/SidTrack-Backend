@@ -1,6 +1,6 @@
 import registeredUsers from "../../models/registeredUsers.js";
-import generateAccessToken from "../../services/auth/generateAccessToken.js";
-import generateRefreshTokenAndSetCookie from "../../services/auth/generateRefreshTokenAndSetCookie.js";
+import generateAccessToken from "../../utils/auth/generateAccessToken.js";
+import generateRefreshTokenAndSetCookie from "../../utils/auth/generateRefreshTokenAndSetCookie.js";
 import bcrypt from "bcrypt";
 import dotenv from "dotenv";
 dotenv.config();
@@ -25,7 +25,15 @@ const handleUserLogin = async (req, res) => {
     await user.save();
     return res.status(200).json({
       message: "User logged in successfully",
-      user: { ...user._doc, password: undefined, refreshToken: undefined },
+      user: {
+        ...user._doc,
+        password: undefined,
+        refreshToken: undefined,
+        isBlacklisted: undefined,
+        __v: undefined,
+        _id: undefined,
+        roles: undefined,
+      },
       accessToken,
     });
   } else {

@@ -32,6 +32,10 @@ const verifyEmail = async (req, res) => {
         ...user._doc,
         password: undefined,
         refreshToken: undefined,
+        isBlacklisted: undefined,
+        __v: undefined,
+        _id: undefined,
+        roles: undefined,
       },
     });
   } catch (error) {

@@ -2,12 +2,15 @@
 import express from "express";
 const app = express();
 import cors from "cors";
-import connectDatabase from "./services/connectDatabase.js";
-import verifyJWT from "./middlewares/verifyAccessTokenJWT.js";
+import connectDatabase from "./utils/connectDatabase.js";
 import cookieParser from "cookie-parser";
 
 import baseRouter from "./routes/root.js";
-import apiRouter from "./routes/api/auth/root.js";
+import authRouter from "./routes/api/auth/root.js";
+import stockRouter from "./routes/api/stock/root.js";
+import trackerRouter from "./routes/api/tracker/root.js";
+import wealthRouter from "./routes/api/wealth/root.js";
+import gainsRouter from "./routes/api/gains/root.js";
 
 // env variables
 const PORT = process.env.PORT || 3000;
@@ -26,15 +29,11 @@ app.use(cookieParser());
 
 // routes
 app.use("/", baseRouter);
-app.use("/api/auth", apiRouter);
-
-// jwt verifying middleware
-app.use(verifyJWT);
-
-// jwt protected routes
-app.get("/hahaha", (req, res) => {
-  res.status(200).json({ message: "Went through verifyJWT" });
-});
+app.use("/api/auth", authRouter);
+app.use("/api/stock", stockRouter);
+app.use("/api/tracker", trackerRouter);
+app.use("/api/wealth", wealthRouter);
+app.use("/api/gains", gainsRouter);
 
 // server listening
 app.listen(PORT, () => {

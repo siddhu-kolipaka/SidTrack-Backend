@@ -1,8 +1,8 @@
 import registeredUsers from "../../models/registeredUsers.js";
 import bcrypt from "bcrypt";
 import dotenv from "dotenv";
-import generateRefreshTokenAndSetCookie from "../../services/auth/generateRefreshTokenAndSetCookie.js";
-import generateAccessToken from "../../services/auth/generateAccessToken.js";
+import generateRefreshTokenAndSetCookie from "../../utils/auth/generateRefreshTokenAndSetCookie.js";
+import generateAccessToken from "../../utils/auth/generateAccessToken.js";
 import { sendVerificationEmail } from "../../mailtrap/emails.js";
 dotenv.config();
 
