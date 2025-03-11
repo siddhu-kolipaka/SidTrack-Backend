@@ -11,6 +11,7 @@ import stockRouter from "./routes/api/stock/root.js";
 import trackerRouter from "./routes/api/tracker/root.js";
 import wealthRouter from "./routes/api/wealth/root.js";
 import gainsRouter from "./routes/api/gains/root.js";
+import metricsRouter from "./routes/api/metrics/root.js";
 
 // env variables
 const PORT = process.env.PORT || 3000;
@@ -34,6 +35,7 @@ app.use("/api/stock", stockRouter);
 app.use("/api/tracker", trackerRouter);
 app.use("/api/wealth", wealthRouter);
 app.use("/api/gains", gainsRouter);
+app.use("/api/metrics", metricsRouter);
 
 // server listening
 app.listen(PORT, () => {

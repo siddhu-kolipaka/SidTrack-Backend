@@ -63,6 +63,7 @@ const modifyPortfolio = async (props) => {
       sellPrice: price,
       gain,
       date: purchaseDate,
+      email,
     });
 
     return {
