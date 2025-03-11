@@ -16,7 +16,7 @@ const handleUserLogout = async (req, res) => {
   res.clearCookie("jwt", {
     httpOnly: true,
     secure: process.env.NODE_ENV == "production",
-    sameSite: "strict",
+    sameSite: "none",
   });
 
   return res
