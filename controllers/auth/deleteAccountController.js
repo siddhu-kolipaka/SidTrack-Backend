@@ -27,7 +27,7 @@ const handleUserDelete = async (req, res) => {
     if (jwt) {
       res.clearCookie("jwt", {
         httpOnly: true,
-        secure: process.env.NODE_ENV === "production",
+        secure: process.env.NODE_ENV == "production",
         sameSite: "strict",
       });
     }

@@ -19,7 +19,7 @@ const generateRefreshTokenAndSetCookie = async (res, user) => {
   // storing jwt token in httpOnly cookie so that hackers cannot access it using javascript
   return res.cookie("jwt", refreshToken, {
     httpOnly: true,
-    secure: process.env.NODE_ENV === "production",
+    secure: process.env.NODE_ENV == "production",
     sameSite: "strict",
     maxAge: 1 * 24 * 60 * 60 * 1000,
   });
